@@ -4,8 +4,9 @@ import Product2 from '../assets/product2.png';
 import Product3 from '../assets/product3.png';
 import Product4 from '../assets/product4.png';
 import { CiHeart } from "react-icons/ci";
+import { IoIosArrowForward } from "react-icons/io";
 
-const CardProduct = (p) =>{   
+const CardProduct = ({ showSale = false }) =>{   
     const productcard = [
         {id:1, image: Product1, like: 0, sale: '50', cardPrice: '44,50', usualPrice: '50,50', name:'Г/Ц Блинчики с мясом вес, Россия', rating:2,},
         {id:2, image: Product2, like: 0, sale: '50', cardPrice: '44,50', usualPrice: '50,50', name:'Молоко ПРОСТОКВАШИНО паст. питьевое цельное отборное...', rating:3,},
@@ -13,21 +14,28 @@ const CardProduct = (p) =>{
         {id:4, image: Product4, like: 0, sale: '50', cardPrice: '44,50', usualPrice: '50,50', name:'Сосиски вареные МЯСНАЯ ИСТОРИЯ Молочные и С сыро...', rating:4,}
     ];
     return(
-        <div className="card">
+        <div className="card"> 
+       
+            
+            <div className="productcards">
             { productcard.map(p=>(
                 <div className="productcard" key={p.id}>
                 <div className="image-card" >
+                    <div className="like">
                     <CiHeart className="like-icon"/> 
+                    </div>
                     <img src={p.image} alt={p.name} className="top-image"/>
+                    {showSale && p.sale && (
                     <div className="sale">
                         <p>-{p.sale}%</p>
                     </div>
+                    )}
                 </div>
                     <div className="card-text">
                       <div className="price-full">
                         <div className="price">
-                                    <h5>{p.cardPrice}₽</h5>
-                                    <h6>{p.usualPrice}₽</h6>
+                                    <h2>{p.cardPrice}₽</h2>
+                                    <h3>{p.usualPrice}₽</h3>
                             </div>
                         </div>
                             <div className="price-text">
@@ -41,10 +49,10 @@ const CardProduct = (p) =>{
                         </div>
                         <button className="card-button">В корзину</button>
                     </div>
-                
-                </div>
+               
+                </div> 
             ))}
-
+            </div>
         </div>
     );
 };
