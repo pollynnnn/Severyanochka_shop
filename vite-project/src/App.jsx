@@ -6,6 +6,8 @@ import Products from './assets/products.png'
 import { IoIosArrowForward } from "react-icons/io";
 import './App.css'
 import CardProduct from './components/cardProduct';
+import OffersCard from './components/Offers';
+import OurStores from './components/OurStores';
 function App() {
 
   return (
@@ -38,7 +40,18 @@ function App() {
       <CardProduct/>
      </div>
      <div className="offers">
-      
+        <div className="sale-head">
+          <h1>Специальные предложения</h1>
+        </div>
+        <div className="card-offers">
+          <OffersCard/>
+        </div>
+     </div>
+     <div className="our-stores">
+        <div className="sale-head">
+          <h1>Наши магазины</h1>
+        </div>
+        <OurStores/>
      </div>
      </div>
     </>
