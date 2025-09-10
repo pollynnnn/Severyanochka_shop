@@ -230,9 +230,6 @@ h4{
   border-color: #FF6633;
 }
 
-.card-button:focus{ outline: none; box-shadow: none; }
-.card-button:focus-visible{ box-shadow: 0 0 0 3px rgba(112,192,91,.35); }
-
 .card-button:active{
   background-color:#FF6633;
   border-color:#FF6633;
@@ -307,48 +304,68 @@ h1{
 
 /* базовая кнопка */
 .city-location {
-  outline: none;          /* убираем стандартный outline в обычном состоянии */
+  outline: none;          
   border: 1px solid #ccc;
   border-radius: 6px;
 }
 
-/* свой фокус-стиль для клавиатуры */
-.city-location:focus-visible {
-  outline: none;
-  box-shadow: 0 0 0 3px rgba(112,192,91,.35);
-  border-color: #70C05B;
-}
-
-/* при клике мышью фокус можно не подсвечивать (опционально) */
 .city-location:focus {
   outline: none;
 }
-
-/* убираем глобальный синий ховер/фокус только для .city-location */
-.city-location {
-  border-color: #ccc;            /* ваш базовый цвет */
-  outline: none;                 /* базово без outline */
-  box-shadow: none;
-}
-
-/* свой ховер вместо синего */
 .city-location:hover {
   border-color: #70C05B;
   background-color: #70C05B;  
-  color: #FFF;       /* ваш цвет при наведении */
+  color: #FFF;      
+}
+.newses{
+  display: flex;
+  flex-direction: row;
+}
+.news-card{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  gap: 40px;
+  padding: 0 116px;
+}
+.news{
+  display: flex;
+  flex-direction: column;
+  background-color: #FFF;
+}
+.news-text{
+  width: 376px;
+  height: 285px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: space-between;
+  text-align: start;
+  padding: 10px;
+  
+  margin-top: 0;
+}
+.date{
+  margin: 0;
 }
 
-/* свой фокус-стиль (для доступности) */
-.city-location:focus-visible {
+.btn-news{
+  display: flex;
+  color: #70C05B;
+  background-color: #E5FFDE;
+  border: 1px solid #70C05B;
   outline: none;
-  box-shadow: 0 0 0 3px rgba(112,192,91,.35);
-  border-color: #70C05B;
-}
-
-/* чтобы глобальный outline не пробивался в некоторых браузерах */
-.city-location:focus {
-  outline: none !important;
   box-shadow: none;
 }
 
+.btn-news:hover{
+  color: #FFF;
+  background-color:#70C05B;
+  border-color: #70C05B;
+}
+
+.btn-news:active{
+  border-color:#70C05B;
+  color:#FFF;
+}
 

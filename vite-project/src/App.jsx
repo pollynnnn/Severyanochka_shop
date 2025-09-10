@@ -8,6 +8,7 @@ import './App.css'
 import CardProduct from './components/cardProduct';
 import OffersCard from './components/Offers';
 import OurStores from './components/OurStores';
+import News from './components/News'
 function App() {
 
   return (
@@ -52,6 +53,12 @@ function App() {
           <h1>Наши магазины</h1>
         </div>
         <OurStores/>
+     </div>
+     <div className="news-section">
+     <div className="sale-head">
+          <h1>Новости</h1>
+        </div>
+      <News/>
      </div>
      </div>
     </>
