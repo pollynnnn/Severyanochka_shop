@@ -9,6 +9,7 @@ import CardProduct from './components/cardProduct';
 import OffersCard from './components/Offers';
 import OurStores from './components/OurStores';
 import News from './components/News'
+import Footer from './components/Footer';
 function App() {
 
   return (
@@ -57,9 +58,13 @@ function App() {
      <div className="news-section">
      <div className="sale-head">
           <h1>Новости</h1>
+        <a href="#">Все статьи<IoIosArrowForward /> </a>
         </div>
       <News/>
      </div>
+     </div>  
+     <div className="footer-section">
+      <Footer/>
      </div>
     </>
   )
