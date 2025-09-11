@@ -15,11 +15,12 @@ function App() {
   return (
     <>
      <Header/>
-     <div className="main">
      <div className="banner">
         <img src={Products} alt="products" />
         <h1>Доставка бесплатно от 1000 ₽</h1>
      </div>
+     <div className="main">
+    
      <div className="sale">
      <div className="sale-head">
         <h1>Акции</h1>
