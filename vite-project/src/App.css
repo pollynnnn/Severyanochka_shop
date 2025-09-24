@@ -12,7 +12,7 @@ p{
   margin: 0;
 }
 .main{
-  width: 1440px;
+  max-width: 1440px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -33,7 +33,7 @@ a:hover{
    display: flex;
    align-items: center;
    justify-content: space-between;
-   padding: 0 116px;
+   width: 1440px;
 }
 .container{
   display: flex;
@@ -190,6 +190,7 @@ border-radius: 5px;
   display: flex;
   align-items: center;
   height: 40px;
+  padding: 0 116px;
 }
 .price{
   width: 256px;
@@ -255,6 +256,7 @@ h2{
 }
 h1{
   margin: 20px 0;
+  padding-left: 116px;
 }
 .new{
   margin: 120px 0;
@@ -308,8 +310,8 @@ h1{
 .button-location{
   display: flex;
   gap: 24px;
-  padding-left: 116px;
   margin-bottom: 24px;
+  padding-left: 116px;
 }
 
 /* базовая кнопка */

@@ -5,6 +5,8 @@ import LogoD from '../assets/logo_dizign.png'
 import SocialI from '../assets/social_icon.png'
 const Footer = () =>{
     return(
+        
+     <div className="footer-section">
     <div className="footer">
         <img src={Logo} alt="logo and text" className="logo" />
         <div className="footer-menu">          
@@ -25,6 +27,7 @@ const Footer = () =>{
             <img src={LogoD} alt="logo vasion"/>
         </div>
         </div>
+    </div>
     </div>
     );
 };

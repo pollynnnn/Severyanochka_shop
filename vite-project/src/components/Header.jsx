@@ -7,12 +7,15 @@ import { BsBox2 } from "react-icons/bs";
 import { SlBasket } from "react-icons/sl";
 import Avatar from "../assets/avatar.png"
 import { IoIosArrowDown } from "react-icons/io";
+import { Link } from 'react-router-dom'
 
 const Header = () => {
   return (
     <div className='container'>
         <div className="logo">
-            <img src={Logo} alt="логотип" />
+            <Link to="/">
+              <img src={Logo} alt="логотип" />
+            </Link>
             <p className="logo">СЕВЕРЯНОЧКА</p>
         </div>
         <a href="#" className="catalog">
@@ -36,10 +39,10 @@ const Header = () => {
         <BsBox2 size={35}/>
         <p>Заказы</p>
         </a>
-        <a href="#">
+        <Link to='/basket'>
             <SlBasket size={40}/>
             <p>Корзина</p>
-        </a>
+        </Link>
        </div>
         <a href="#" className="profile">
             <div className="user-profile">
