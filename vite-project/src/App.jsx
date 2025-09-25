@@ -7,14 +7,16 @@ import { Routes, Route } from 'react-router-dom';
 
 function App() {
   return (
-    <>
+    <div className='app-shell'>
      <Header/>
-      <Routes>
-        <Route path="/" element={<Mainpage/>} />
-        <Route path="/basket" element={<Basket/>} />
-      </Routes>
+      <main className='app-main'>
+        <Routes> 
+          <Route path="/" element={<Mainpage/>} />
+          <Route path="/basket" element={<Basket/>} />
+        </Routes>
+      </main>
       <Footer/>
-    </>
+    </div>
   )
 }
 
