@@ -596,3 +596,80 @@ align-items: center;
   font-weight: 600;
   cursor: pointer;
 }
+
+/* ===== Auth Modal (brand styled) ===== */
+.modal-backdrop{
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.35);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+}
+
+.modal-window{
+  position: relative;
+  width: 420px;
+  background: #FFF;
+  border-radius: 12px;
+  padding: 24px;
+  box-shadow: 0 12px 32px rgba(0,0,0,0.18);
+}
+
+.auth-header{
+  display: flex;
+  gap: 8px;
+  margin-bottom: 16px;
+}
+
+.auth-tab{
+  flex: 1;
+  height: 40px;
+  border-radius: 8px;
+  border: 1px solid #E0E0E0;
+  background: #F3F2F1;
+  color: #414141;
+  cursor: pointer;
+  transition: all .15s ease;
+}
+.auth-tab:hover{ border-color: #CFCFCF; }
+.auth-tab.active{
+  background: #E5FFDE;
+  border-color: #70C05B;
+  color: #2b2b2b;
+}
+
+.auth-form{ display: flex; flex-direction: column; gap: 12px; }
+.auth-input{ height: 44px; border: 1px solid #E0E0E0; border-radius: 8px; padding: 0 12px; background:#FFFFFF; color:#000000; }
+.auth-input::placeholder{ color:#6f6f6f; }
+.auth-input:-webkit-autofill,
+.auth-input:-webkit-autofill:hover,
+.auth-input:-webkit-autofill:focus{
+  -webkit-text-fill-color:#000000;
+  transition: background-color 9999s ease-in-out 0s;
+  box-shadow: 0 0 0px 1000px #FFFFFF inset;
+}
+.auth-input:focus{ outline:none; border-color:#70C05B; box-shadow: 0 0 0 3px rgba(112,192,91,0.2); }
+
+.auth-submit{ height: 44px; background:#70C05B; color:#FFF; border:none; border-radius:8px; cursor:pointer; font-weight:600; }
+.auth-submit:hover{ background:#5ab149; }
+.auth-submit:active{ background:#4d9a3f; }
+
+.modal-close{
+  position: absolute;
+  top: -12px;
+  right: -12px;
+  width: 36px; height: 36px;
+  border-radius: 50%;
+  border: 1px solid #E0E0E0;
+  background: #FFFFFF;
+  color:#414141;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  line-height: 1;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.12);
+}
+.modal-close:hover{ background:#F7F7F7; }

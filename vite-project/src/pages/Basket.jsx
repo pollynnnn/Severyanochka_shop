@@ -1,45 +1,23 @@
-import React, { useMemo, useState } from "react";
+import React, { useMemo } from "react";
 import { IoIosArrowForward } from "react-icons/io";
-import BasketCard, { defaultBasketItems } from "../components/BasketCard";
+import BasketCard from "../components/BasketCard";
+import { useCart } from "../components/CartContext.jsx";
 
 const Basket = () => {
-    const [items, setItems] = useState(defaultBasketItems);
-
-    const increment = (id) => {
-        setItems((prev) => prev.map(i => i.id === id ? { ...i, quantity: i.quantity + 1 } : i));
-    };
-    const decrement = (id) => {
-        setItems((prev) => prev.map(i => i.id === id && i.quantity > 1 ? { ...i, quantity: i.quantity - 1 } : i));
-    };
-    const toggleSelect = (id) => {
-        setItems((prev) => prev.map(i => i.id === id ? { ...i, selected: !i.selected } : i));
-    };
-
-    const { totalCount, totalPrice, discount } = useMemo(() => {
-        const selected = items.filter(i => i.selected && i.inStock);
-        const count = selected.reduce((s, i) => s + i.quantity, 0);
-        const price = selected.reduce((s, i) => s + i.price, 0);
-        const old = selected.reduce((s, i) => s + (i.oldPrice || i.price), 0);
-        const disc = old > price ? old - price : 0;
-        return { totalCount: count, totalPrice: price, discount: disc };
-    }, [items]);
-
+    const { items, increment, decrement, toggleSelect, selectAll, totalCount, totalPrice, discount } = useCart();
     return(
         <>
         <div className="bas-main">
             <p>Главная <IoIosArrowForward /> Корзина </p>
             <h1>Корзина</h1>
-            <div className="basket-container">
+            <div className="container basket-container">
                 <div className="basket-content">
                     <div className="basket-toolbar">
                         <label>
                             <input
                                 type="checkbox"
-                                checked={items.every(i => i.selected)}
-                                onChange={(e) => {
-                                    const checked = e.target.checked;
-                                    setItems(prev => prev.map(i => ({ ...i, selected: checked })));
-                                }}
+                                checked={items.length > 0 && items.every(i => i.selected)}
+                                onChange={(e) => selectAll(e.target.checked)}
                             />
                             Выбрать всё
                         </label>

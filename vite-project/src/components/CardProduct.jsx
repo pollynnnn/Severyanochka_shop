@@ -5,13 +5,15 @@ import Product3 from '../assets/product3.png';
 import Product4 from '../assets/product4.png';
 import { CiHeart } from "react-icons/ci";
 import { IoIosArrowForward } from "react-icons/io";
+import { useCart } from './CartContext.jsx';
 
 const CardProduct = ({ showSale = false }) =>{   
+    const { addItem } = useCart();
     const productcard = [
-        {id:1, image: Product1, like: 0, sale: '50', cardPrice: '44,50', usualPrice: '50,50', name:'Г/Ц Блинчики с мясом вес, Россия', rating:2,},
-        {id:2, image: Product2, like: 0, sale: '50', cardPrice: '44,50', usualPrice: '50,50', name:'Молоко ПРОСТОКВАШИНО паст. питьевое цельное отборное...', rating:3,},
-        {id:3, image: Product3, like: 0, sale: '50', cardPrice: '44,50', usualPrice: '50,50', name:'Колбаса сырокопченая МЯСНАЯ ИСТОРИЯ Сальчичон и Тоскан...', rating:5,},
-        {id:4, image: Product4, like: 0, sale: '50', cardPrice: '44,50', usualPrice: '50,50', name:'Сосиски вареные МЯСНАЯ ИСТОРИЯ Молочные и С сыро...', rating:4,}
+        {id:'1', image: Product1, like: 0, sale: '50', cardPrice: 44.5, usualPrice: 50.5, name:'Г/Ц Блинчики с мясом вес, Россия', rating:2,},
+        {id:'2', image: Product2, like: 0, sale: '50', cardPrice: 44.5, usualPrice: 50.5, name:'Молоко ПРОСТОКВАШИНО паст. питьевое цельное отборное...', rating:3,},
+        {id:'3', image: Product3, like: 0, sale: '50', cardPrice: 44.5, usualPrice: 50.5, name:'Колбаса сырокопченая МЯСНАЯ ИСТОРИЯ Сальчичон и Тоскан...', rating:5,},
+        {id:'4', image: Product4, like: 0, sale: '50', cardPrice: 44.5, usualPrice: 50.5, name:'Сосиски вареные МЯСНАЯ ИСТОРИЯ Молочные и С сыро...', rating:4,}
     ];
     return(
         <div className="card"> 
@@ -34,8 +36,8 @@ const CardProduct = ({ showSale = false }) =>{
                     <div className="card-text">
                       <div className="price-full">
                         <div className="price">
-                                    <h2>{p.cardPrice}₽</h2>
-                                    <h3>{p.usualPrice}₽</h3>
+                                    <h2>{p.cardPrice.toFixed(2)}₽</h2>
+                                    <h3>{p.usualPrice.toFixed(2)}₽</h3>
                             </div>
                         </div>
                             <div className="price-text">
@@ -47,7 +49,16 @@ const CardProduct = ({ showSale = false }) =>{
                         <div className="star">
                         {'★'.repeat(Math.round(p.rating))}{'☆'.repeat(5 - Math.round(p.rating))}
                         </div>
-                        <button className="card-button">В корзину</button>
+                        <button className="card-button" onClick={() => addItem({
+                            id: p.id,
+                            title: p.name,
+                            price: p.cardPrice,
+                            oldPrice: p.usualPrice,
+                            unitPrice: p.cardPrice,
+                            discountPercent: p.sale ? Number(p.sale) : 0,
+                            image: p.image,
+                            inStock: true,
+                        })}>В корзину</button>
                     </div>
                
                 </div> 

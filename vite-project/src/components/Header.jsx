@@ -1,15 +1,17 @@
-import React from 'react'
+import React, { useState } from 'react'
 import Logo from '../assets/logo.svg'
 import { RxHamburgerMenu } from "react-icons/rx";
 import { IoIosSearch } from "react-icons/io";
 import { CiHeart } from "react-icons/ci";
 import { BsBox2 } from "react-icons/bs";
 import { SlBasket } from "react-icons/sl";
-import Avatar from "../assets/avatar.png"
-import { IoIosArrowDown } from "react-icons/io";
 import { Link } from 'react-router-dom'
+import AuthModal from './AuthModal'
+import { FiLogIn } from 'react-icons/fi'
 
 const Header = () => {
+  const [authOpen, setAuthOpen] = useState(false)
+
   return (
     <div className='container'>
         <div className="logo">
@@ -44,15 +46,11 @@ const Header = () => {
             <p>Корзина</p>
         </Link>
        </div>
-        <a href="#" className="profile">
-            <div className="user-profile">
-                <div className="profile-info">
-                <img src={Avatar} alt="user_avatar" />
-                <p>Алексей</p>
-                </div>
-                <IoIosArrowDown />
-            </div>
-        </a>
+        <button onClick={() => setAuthOpen(true)} className="profile" style={{ background:'#70C05B', color:'#FFF', border:'none', padding:'8px 12px', display:'flex', alignItems:'center', gap:8, borderRadius:4 }}>
+            <FiLogIn size={20} />
+            <span>Войти</span>
+        </button>
+        <AuthModal open={authOpen} onClose={() => setAuthOpen(false)} />
     </div>
   );
 };
