@@ -8,9 +8,12 @@ import { SlBasket } from "react-icons/sl";
 import { Link } from 'react-router-dom'
 import AuthModal from './AuthModal'
 import { FiLogIn } from 'react-icons/fi'
+import { useAuth } from './AuthContext.jsx'
+import FallbackAvatar from '../assets/avatar.png'
 
 const Header = () => {
   const [authOpen, setAuthOpen] = useState(false)
+  const { isAuthenticated, user } = useAuth()
 
   return (
     <div className='container'>
@@ -46,10 +49,17 @@ const Header = () => {
             <p>Корзина</p>
         </Link>
        </div>
-        <button onClick={() => setAuthOpen(true)} className="profile" style={{ background:'#70C05B', color:'#FFF', border:'none', padding:'8px 12px', display:'flex', alignItems:'center', gap:8, borderRadius:4 }}>
+        {isAuthenticated && user ? (
+          <div className="profile" style={{ display:'flex', alignItems:'center', gap:8 }}>
+            <img src={user.avatar || FallbackAvatar} alt="user_avatar" style={{ width:32, height:32, borderRadius:'50%', objectFit:'cover' }} />
+            <p>{user.name || user.login || 'Профиль'}</p>
+          </div>
+        ) : (
+          <button onClick={() => setAuthOpen(true)} className="profile" style={{ background:'#70C05B', color:'#FFF', border:'none', padding:'8px 12px', display:'flex', alignItems:'center', gap:8, borderRadius:4 }}>
             <FiLogIn size={20} />
             <span>Войти</span>
-        </button>
+          </button>
+        )}
         <AuthModal open={authOpen} onClose={() => setAuthOpen(false)} />
     </div>
   );

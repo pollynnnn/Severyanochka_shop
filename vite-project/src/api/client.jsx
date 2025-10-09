@@ -1,7 +1,7 @@
 import axios from 'axios'
 
 export const api = axios.create({
-    baseURL: 'https://ivfedotovshopapi.netlify.app/.netlify/functions/app/',
+    baseURL: 'https://ivfedotovshopapi.netlify.app/.netlify/functions/app',
 });
 api.interceptors.request.use((config) => {
     const token = localStorage.getItem('token');

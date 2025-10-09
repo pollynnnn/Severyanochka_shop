@@ -1,7 +1,7 @@
-import { api } from './client';
+import { api } from './client.jsx';
 
-export async function registerUser({login, password, email, name}) {
-    const { data } = await api.post('/auth/register', {login, password, email, name});
+export async function registerUser({login, password, email, name, avatar}) {
+    const { data } = await api.post('/auth/register', {login, password, email, name, avatar});
     return data;
 }
 
